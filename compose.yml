@@ -1,0 +1,15 @@
+services:
+  IncreasingSubsequence.Service:
+   image: ${DOCKER_REGISTRY-}increasingsubsequence
+   build:
+    dockerfile: Dockerfile
+   environment:
+    - ASPNETCORE_ENVIRONMENT=Development
+    - ASPNETCORE_URLS=https://+:443;http://+:80
+    - ASPNETCORE_Kestrel__Certificates__Default__Password=Pass1234
+    - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/codingEx.pfx
+   ports:
+    - "44429:80"
+    - "44428:443"
+   volumes:
+    - ~/.aspnet/https:/https:ro
