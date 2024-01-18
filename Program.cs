@@ -1,8 +1,11 @@
+using IncreasingSubsequence.Data.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddTransient<ISequenceService, SequenceService>();
 
 var app = builder.Build();
 
