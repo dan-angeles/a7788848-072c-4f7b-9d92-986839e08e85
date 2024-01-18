@@ -15,7 +15,7 @@ jobs:
     steps:
 
     - name: Test
-      run: dotnet test ./IncreasingSubsequence.Tests/IncreasingSubsequence.Tests.csproj --no-build --verbosity normal --collect:"XPlat Code Coverage" --logger trx --results-directory coverage
+      run: dotnet test IncreasingSubsequence.Tests/IncreasingSubsequence.Tests.csproj --no-build --verbosity normal --collect:"XPlat Code Coverage" --logger trx --results-directory coverage
 
     - name: Code Coverage Summary Report
       uses: irongut/CodeCoverageSummary@v1.3.0
