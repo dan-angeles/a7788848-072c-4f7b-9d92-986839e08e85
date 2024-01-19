@@ -4,10 +4,10 @@ const { env } = require('process');
 //const target = env.ASPNETCORE_HTTPS_PORT ? `https://localhost:${env.ASPNETCORE_HTTPS_PORT}` :
   //env.ASPNETCORE_URLS ? env.ASPNETCORE_URLS.split(';')[0] : 'http://localhost:44337';
 
-const target = 'https://localhost:44428'
+const target = 'https://localhost:44428';
 
 const context = [
-  "/weatherforecast",
+    "/increasingsubsequence"
 ];
 
 const onError = (err, req, resp, target) => {
