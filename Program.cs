@@ -7,6 +7,19 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddTransient<ISequenceService, SequenceService>();
 
+var allowedOrigin = builder.Configuration.GetSection("AllowedOrigins").Get<string[]>();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("myAppCors", policy =>
+    {
+        policy.WithOrigins("https://localhost:44428")
+                            .AllowAnyHeader()
+                            .AllowAnyMethod();
+    });
+}); 
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -16,6 +29,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.UseCors("myAppCors");
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();

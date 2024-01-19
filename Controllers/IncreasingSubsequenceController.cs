@@ -3,7 +3,6 @@ using IncreasingSubsequence.Data.Models;
 using IncreasingSubsequence.Data.Services;
 using IncreasingSubsequence.Data.Utilities;
 using System.Text.Json;
-using Trips.Controllers;
 using System.Text;
 
 namespace IncreasingSubsequence.Controllers
@@ -27,7 +26,7 @@ namespace IncreasingSubsequence.Controllers
         /// </summary>
         /// <param name="inpSeq"></param>
         /// <returns>longest sequence of numbers</returns>
-        [HttpGet("GetLongestSequence")]
+        [HttpPost("GetLongestSequence")]
         public IActionResult GetLongestSequence([FromBody] InputSequence inpSeq)
         {
             StringBuilder jsonString = new StringBuilder();

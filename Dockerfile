@@ -20,9 +20,11 @@ RUN apt-get install -y nodejs
 WORKDIR /src
 COPY ["IncreasingSubsequence.csproj", "."]
 RUN dotnet restore "./IncreasingSubsequence.csproj"
+
 COPY . .
 WORKDIR "/src/."
 RUN dotnet build "IncreasingSubsequence.csproj" -c Release -o /app/build
+RUN npm install --save axios
 
 FROM build AS publish
 RUN dotnet publish "IncreasingSubsequence.csproj" -c Release -o /app/publish /p:UseAppHost=false
